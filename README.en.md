@@ -11,6 +11,8 @@
 
 > The internet contains useful information — and a lot of noise. aidigest keeps the useful part before it reaches your AI agent, shows the real saving, and helps protect its context.
 
+![aidigest — your AI does not need to read everything](./docs/assets/social-preview.svg)
+
 ![aidigest removes noise and delivers useful context](./docs/assets/aidigest-overview.svg)
 
 ## The idea in one sentence
@@ -25,6 +27,8 @@ Open aidigest, choose your agent, and keep working. It cleans web pages, removes
 4. Choose **Configure an agent**, select Claude Desktop, Cursor, OpenCode, or VS Code, and let aidigest prepare the connection.
 
 You can also give this repository link to your coding assistant and ask it to install aidigest automatically. The Spanish README contains the full command reference; the application itself includes a Spanish/English switch.
+
+To show aidigest to someone else, use the [30-second demo script](./docs/DEMO.md) and the [ready-to-post launch messages](./docs/LAUNCH.md).
 
 ## Who benefits
 
