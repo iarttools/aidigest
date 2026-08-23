@@ -17,7 +17,7 @@
 
 ## See aidigest in action
 
-[![Watch the aidigest 30-second demo](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.gif?v=4)](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4?v=4)
+[![Watch the aidigest 30-second demo](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.gif?v=5)](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4?v=5)
 
 The animated preview plays directly in GitHub. Click it to open the full MP4. It shows the flow from noisy web content to a cleaner, measurable digest: **259 → 126 tokens** in the included example.
 
