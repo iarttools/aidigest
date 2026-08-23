@@ -2,7 +2,7 @@
 
 **La capa gratuita que hace que cualquier IA lea menos y entienda mejor.**
 
-[Español](./README.md) · [English](./README.en.md)
+> **Idioma / Language:** 🇪🇸 **Español** · [🇬🇧 English](./README.en.md)
 
 [![tests](https://img.shields.io/badge/tests-72%2F72-brightgreen)](./src)
 [![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
@@ -11,7 +11,7 @@
 
 > Internet está lleno de información útil… y de mucho ruido. aidigest se queda con lo importante antes de que llegue a tu agente, te enseña cuánto has ahorrado y ayuda a proteger el contexto.
 
-![aidigest — tu IA no necesita leerlo todo](./docs/assets/social-preview.svg)
+![aidigest — tu IA no necesita leerlo todo](./docs/assets/social-preview.es.svg)
 
 ![aidigest elimina ruido y entrega contexto útil](./docs/assets/aidigest-overview.svg)
 
