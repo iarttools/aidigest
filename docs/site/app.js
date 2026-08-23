@@ -38,6 +38,11 @@ function applyLanguage() {
     element.placeholder = copy[language][element.dataset.i18nPlaceholder];
   });
   document.querySelectorAll('.language-button').forEach((button) => button.classList.toggle('active', button.dataset.language === language));
+  const overview = document.querySelector('[data-localized]');
+  if (overview) {
+    overview.src = language === 'es' ? '../assets/aidigest-overview.svg' : '../assets/aidigest-overview.en.svg';
+    overview.alt = language === 'es' ? 'Resumen de aidigest en español' : 'aidigest overview in English';
+  }
 }
 
 function estimate(text) {
@@ -75,9 +80,6 @@ function renderMeasure(result) {
   $('#afterLabel').textContent = result.after.toLocaleString() + (language === 'es' ? ' después' : ' after');
   $('#savedBar').style.width = result.pct + '%';
   $('#resultStatus').textContent = language === 'es' ? 'MEDIDO' : 'MEASURED';
-  $('#heroBefore').textContent = result.before.toLocaleString();
-  $('#heroAfter').textContent = result.after.toLocaleString();
-  $('#heroPct').textContent = result.pct + '% ' + (language === 'es' ? 'menos' : 'less');
 }
 
 function renderBenchmark(data) {
