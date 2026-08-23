@@ -11,6 +11,8 @@
 
 > Internet está lleno de información útil… y de mucho ruido. aidigest se queda con lo importante antes de que llegue a tu agente, te enseña cuánto has ahorrado y ayuda a proteger el contexto.
 
+![aidigest — tu IA no necesita leerlo todo](./docs/assets/social-preview.svg)
+
 ![aidigest elimina ruido y entrega contexto útil](./docs/assets/aidigest-overview.svg)
 
 ## En una frase
@@ -25,6 +27,8 @@ Abres aidigest, eliges tu agente y sigues trabajando. La herramienta limpia pág
 4. Pulsa **Configurar un agente**, selecciona Claude Desktop, Cursor, OpenCode o VS Code y deja que aidigest prepare la conexión.
 
 También puedes pedirle a tu propia IA que lo instale desde la URL del repositorio. La guía completa está en [Instalación automática dirigida por una IA](#instalación-automática-dirigida-por-una-ia).
+
+Para enseñar aidigest a otra persona, usa el [guion de demo de 30 segundos](./docs/DEMO.md) y los [mensajes preparados para publicar](./docs/LAUNCH.md).
 
 ## Qué gana cada persona
 
