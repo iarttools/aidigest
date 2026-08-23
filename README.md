@@ -18,13 +18,12 @@
 ## See aidigest in action
 
 <p align="center">
-  <video controls width="100%" poster="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/assets/social-preview.svg">
-    <source src="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4" type="video/mp4">
-    Your browser cannot play this video. <a href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4">Download the 30-second demo</a>.
-  </video>
+  <a href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4">
+    <img src="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.gif" alt="Watch the aidigest 30-second demo" width="100%">
+  </a>
 </p>
 
-Watch the 30-second overview to see the flow from noisy web content to a cleaner, measurable digest: **259 → 126 tokens** in the included example.
+The animated preview plays directly in GitHub. Click it to open the full MP4. It shows the flow from noisy web content to a cleaner, measurable digest: **259 → 126 tokens** in the included example.
 
 [Download the MP4 demo](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4)
 
