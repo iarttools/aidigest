@@ -18,8 +18,8 @@
 ## See aidigest in action
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4">
-    <img src="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.gif" alt="Watch the aidigest 30-second demo" width="100%">
+  <a href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4?v=3">
+    <img src="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.gif?v=3" alt="Watch the aidigest 30-second demo" width="640" height="360">
   </a>
 </p>
 
