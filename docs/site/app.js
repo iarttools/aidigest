@@ -40,7 +40,7 @@ function applyLanguage() {
   document.querySelectorAll('.language-button').forEach((button) => button.classList.toggle('active', button.dataset.language === language));
   const overview = document.querySelector('[data-localized]');
   if (overview) {
-    overview.src = language === 'es' ? '../assets/aidigest-overview.svg' : '../assets/aidigest-overview.en.svg';
+    overview.src = language === 'es' ? 'assets/aidigest-overview.svg' : 'assets/aidigest-overview.en.svg';
     overview.alt = language === 'es' ? 'Resumen de aidigest en español' : 'aidigest overview in English';
   }
 }
