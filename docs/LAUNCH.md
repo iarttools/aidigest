@@ -58,6 +58,76 @@ It ships as one portable `.exe`, is local-first, and connects Claude Desktop, Cu
 
 Try it, measure your own pages, and tell me what to improve.
 
+## Show HN — English
+
+**Title**
+
+> Show HN: aidigest – A free local-first layer that helps AI agents read less
+
+**Body**
+
+> I built aidigest after noticing how much web noise AI agents receive before they reach the useful content. It runs locally, cleans HTML/Markdown, removes repeated boilerplate, flags prompt-injection patterns, and returns a measured before/after token receipt.
+>
+> It ships as a portable Windows EXE, and also works through CLI, MCP, and a local proxy. The included demo goes from 259 to 126 tokens; that is one example, not a promise for every page.
+>
+> GitHub: https://github.com/iarttools/aidigest
+>
+> I would especially like feedback on pages that are difficult to clean, agent integrations that should be supported, and cases where the extractor removes too much.
+
+## Reddit — español
+
+> He creado aidigest, una herramienta gratuita y open source para que los agentes de IA reciban páginas web más limpias.
+>
+> Elimina ruido repetido, menús, contenido de navegación y señales conocidas de prompt injection. Además, muestra tokens antes/después para medir el resultado real.
+>
+> Funciona en local, incluye un panel negro con gráficas y se puede probar con un único EXE portable.
+>
+> Demo incluida: 259 → 126 tokens. Es un ejemplo medido, no una promesa fija.
+>
+> https://github.com/iarttools/aidigest
+
+## Reddit — English
+
+> I built aidigest, a free open-source tool that gives AI agents cleaner web context.
+>
+> It removes repeated navigation noise, flags known prompt-injection patterns, and shows before/after tokens so you can measure the result instead of guessing.
+>
+> It runs locally, includes a dark desktop panel with live charts, and ships as one portable EXE.
+>
+> Included demo: 259 → 126 tokens. That is a measured example, not a fixed promise.
+>
+> https://github.com/iarttools/aidigest
+
+## Dev.to / blog title ideas
+
+- I measured how much web noise AI agents read — then built a free filter
+- Your AI does not need to read the whole webpage
+- A local-first context layer for Claude, Cursor, MCP, and other agents
+
+## Social post — español
+
+> Tu IA no necesita leerlo todo.
+>
+> aidigest limpia páginas web antes de que lleguen al agente y muestra el ahorro real de tokens.
+>
+> Gratis · open source · local · panel EXE · Claude · Cursor · MCP
+>
+> Demo: 259 → 126 tokens en una página de ejemplo.
+>
+> https://github.com/iarttools/aidigest
+
+## Social post — English
+
+> Your AI does not need to read everything.
+>
+> aidigest cleans web pages before they reach the agent and shows the measured token saving.
+>
+> Free · open source · local-first · portable EXE · Claude · Cursor · MCP
+>
+> Demo: 259 → 126 tokens on the included example.
+>
+> https://github.com/iarttools/aidigest
+
 ## Ideas para conseguir las primeras estrellas
 
 - Publicar la demo de 30 segundos antes que una explicación técnica.
