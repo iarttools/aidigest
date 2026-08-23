@@ -57,6 +57,40 @@ The reduction changes with every page. There is no magic number: the panel shows
 
 If aidigest saves you time or tokens, the most useful help is sharing a screenshot from a real page, starring the GitHub repository, or contributing a translation, agent integration, or test case. We have prepared copy in [`docs/LAUNCH.md`](./docs/LAUNCH.md).
 
+## Put aidigest inside your GitHub repository
+
+The public demo is only the beginning. You can make any documentation-heavy repository measure its own AI context by adding the free **aidigest Context Receipt** Action:
+
+```yaml
+name: Context receipt
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  aidigest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: iarttools/aidigest@main
+        with:
+          paths: README.md,docs
+```
+
+Each pull request receives a compact, local measurement of input tokens, removable boilerplate, repeated lines, and known instruction-like signals. It does not call an AI model, require an API key, or upload your repository. The percentage is an estimate to guide decisions, not a fixed promise for every page.
+
+Try the browser-only [savings lab](https://iarttools.github.io/aidigest/) or read the complete [repository adoption guide](./docs/adoption.md). The GitHub Action can be disabled at any time; the desktop panel and CLI also support fully manual use.
+
+### Make the project easier to discover
+
+- Try the [public demo](https://iarttools.github.io/aidigest/) before installing.
+- Share a measured before/after receipt in [Discussions](https://github.com/iarttools/aidigest/discussions), especially for a difficult page.
+- Use the issue forms for reproducible bugs and feature ideas.
+- Cite or link the project with the included [`CITATION.cff`](./CITATION.cff).
+
 ## Why it exists
 
 When an agent reads a page, it often receives much more than the article or documentation that matters:

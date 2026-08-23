@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="aidigest helps AI agents read less, measure context savings, and keep useful content local.">
+    <meta property="og:title" content="aidigest — make your AI read less">
+    <meta property="og:description" content="A free, local-first context layer with a measurable before/after receipt.">
+    <meta property="og:image" content="assets/social-preview.svg">
+    <title>aidigest — make your AI read less</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="."><span class="brand-mark">a/</span> aidigest</a>
+      <nav aria-label="Primary">
+        <a data-i18n="navLab" href="#lab">Try the lab</a>
+        <a data-i18n="navAction" href="#action">Use in GitHub</a>
+        <a data-i18n="navProof" href="#proof">Proof</a>
+        <a data-i18n="navCode" href="https://github.com/iarttools/aidigest">GitHub</a>
+      </nav>
+      <div class="language" role="group" aria-label="Language">
+        <button class="language-button active" data-language="en">EN</button>
+        <button class="language-button" data-language="es">ES</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">OPEN SOURCE · LOCAL-FIRST · FREE</p>
+          <h1 data-i18n="heroTitle">Your AI does not need to read everything.</h1>
+          <p class="hero-text" data-i18n="heroText">aidigest keeps the useful part of a page, measures what changed, and gives your agent a cleaner context before the reading gets expensive.</p>
+          <div class="hero-actions">
+            <a class="button primary" data-i18n="tryButton" href="#lab">Try the savings lab</a>
+            <a class="button ghost" data-i18n="downloadButton" href="https://github.com/iarttools/aidigest/releases/latest/download/aidigest-panel.exe">Download the portable EXE</a>
+          </div>
+          <p class="microcopy" data-i18n="heroMicrocopy">No API key. No account. The lab runs in this browser.</p>
+        </div>
+        <div class="hero-card">
+          <div class="terminal-top"><span></span><span></span><span></span><b>context receipt</b></div>
+          <div class="receipt-row"><span data-i18n="before">Before</span><strong id="heroBefore">259</strong><small>tokens</small></div>
+          <div class="receipt-line"><span></span></div>
+          <div class="receipt-row"><span data-i18n="after">After</span><strong class="accent" id="heroAfter">126</strong><small>tokens</small></div>
+          <div class="receipt-footer"><span class="pill" id="heroPct">51% less</span><span data-i18n="exampleOnly">included example</span></div>
+        </div>
+      </section>
+
+      <section id="lab" class="lab shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="labEyebrow">SEE IT ON YOUR OWN TEXT</p>
+          <h2 data-i18n="labTitle">A small experiment before a big promise.</h2>
+          <p data-i18n="labText">Paste a page, README, or agent prompt. This browser-only preview removes common navigation and boilerplate, then shows an approximate receipt.</p>
+        </div>
+        <div class="lab-grid">
+          <div class="input-card">
+            <div class="card-label"><span data-i18n="pasteLabel">Paste text</span><button id="loadSample" class="text-button" data-i18n="sampleButton">Load sample</button></div>
+            <textarea id="sourceText" data-i18n-placeholder="pastePlaceholder" placeholder="Paste text here…" spellcheck="false"></textarea>
+            <button id="measure" class="button primary full" data-i18n="measureButton">Measure my context</button>
+            <p class="privacy-note" data-i18n="privacyNote">Nothing is uploaded. This preview is an estimate; the desktop app and CLI use the full extractor.</p>
+          </div>
+          <div class="result-card" aria-live="polite">
+            <div class="result-header"><span data-i18n="receiptLabel">Your receipt</span><span id="resultStatus" class="status">READY</span></div>
+            <div class="big-number"><strong id="savedTokens">—</strong><span data-i18n="savedTokens">estimated tokens saved</span></div>
+            <div class="bar-wrap"><div class="bar"><span id="savedBar"></span></div><div class="bar-caption"><span id="beforeLabel">— before</span><span id="afterLabel">— after</span></div></div>
+            <div class="metric-list">
+              <div><span data-i18n="metricReduction">Reduction</span><strong id="savedPct">—</strong></div>
+              <div><span data-i18n="metricLines">Noise lines</span><strong id="removedLines">—</strong></div>
+              <div><span data-i18n="metricSignals">Safety signals</span><strong id="signals">—</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="action" class="action-section shell">
+        <div class="section-heading compact">
+          <p class="eyebrow" data-i18n="actionEyebrow">THE UNUSUAL GITHUB PART</p>
+          <h2 data-i18n="actionTitle">Make every pull request explain its context.</h2>
+          <p data-i18n="actionText">Add one step to a repository and aidigest leaves a compact receipt on the pull request. It runs inside GitHub, needs no model key, and helps teams decide what their agents really need to read.</p>
+        </div>
+        <div class="code-card">
+          <div class="code-top"><span>context-receipt.yml</span><button id="copyAction" class="text-button" data-i18n="copyButton">Copy</button></div>
+          <pre><code>name: context receipt
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  receipt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: iarttools/aidigest@main
+        with:
+          paths: README.md,docs</code></pre>
+        </div>
+      </section>
+
+      <section id="proof" class="proof shell">
+        <div class="section-heading compact">
+          <p class="eyebrow" data-i18n="proofEyebrow">MEASURED, NOT MARKETING</p>
+          <h2 data-i18n="proofTitle">The result depends on the page. That is why aidigest shows the receipt.</h2>
+          <p data-i18n="proofText">The chart below comes from the reproducible local benchmark included in the repository. It is a comparison of operations, not a promise about every website or model.</p>
+        </div>
+        <div class="proof-grid">
+          <div class="benchmark-card" id="benchmarkCard"><div class="loading" data-i18n="loading">Loading benchmark…</div></div>
+          <div class="proof-notes">
+            <div class="note"><span class="note-icon">01</span><div><strong data-i18n="proofOneTitle">Useful content first</strong><p data-i18n="proofOneText">Menus, scripts, repeated blocks, and common boilerplate can stay out of the model context.</p></div></div>
+            <div class="note"><span class="note-icon">02</span><div><strong data-i18n="proofTwoTitle">Safety is visible</strong><p data-i18n="proofTwoText">Known instruction-like signals are flagged so a person or agent can review them.</p></div></div>
+            <div class="note"><span class="note-icon">03</span><div><strong data-i18n="proofThreeTitle">Local by default</strong><p data-i18n="proofThreeText">The portable panel, CLI, MCP server, and preview can work without a hosted account.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo shell">
+        <div class="demo-copy"><p class="eyebrow" data-i18n="demoEyebrow">30 SECONDS</p><h2 data-i18n="demoTitle">See the whole idea before you install it.</h2><p data-i18n="demoText">The preview shows the same journey as the panel: noisy input, cleaner context, measured savings.</p><a class="button ghost" data-i18n="githubButton" href="https://github.com/iarttools/aidigest">Open the full project</a></div>
+        <a class="demo-media" href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4"><img src="../video/aidigest-youtube-demo.gif" alt="aidigest 30 second demo"></a>
+      </section>
+    </main>
+
+    <footer class="footer shell"><span>aidigest · MIT · free forever</span><span><a href="https://github.com/iarttools/aidigest">GitHub</a> · <a href="https://github.com/iarttools/aidigest/discussions">Discussions</a> · <a href="https://github.com/iarttools/aidigest/blob/main/SECURITY.md">Security</a></span></footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
+

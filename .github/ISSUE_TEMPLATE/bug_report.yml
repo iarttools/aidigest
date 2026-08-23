@@ -1,0 +1,50 @@
+name: Bug report
+description: Report something that does not work as expected.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help improve aidigest. Please avoid posting API keys, private URLs, or personal data.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which release, commit, or EXE version did you use?
+      placeholder: v0.8.1 or main
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did it happen?
+      options:
+        - Desktop panel
+        - CLI
+        - MCP server
+        - Local proxy
+        - GitHub Action
+        - Public demo
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What happened?
+      description: Tell us what you expected and what you saw.
+      placeholder: Steps to reproduce, expected result, actual result...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Safe logs or screenshots
+      description: Remove tokens, credentials, private URLs, and personal information first.
+      render: text
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows 11, Node 22, Claude Desktop
+

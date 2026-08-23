@@ -1,0 +1,29 @@
+name: benchmark
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Run reproducible benchmark
+        run: node --expose-gc scripts/benchmark.mjs > docs/site/data/benchmark.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aidigest-benchmark-${{ github.sha }}
+          path: docs/site/data/benchmark.json
+          retention-days: 30
+

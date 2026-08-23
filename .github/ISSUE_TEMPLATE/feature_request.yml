@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest a useful improvement for the free project.
+title: "[Idea]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The strongest ideas make AI context shorter, safer, easier to understand, or easier to measure.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      placeholder: Today I have to... / It would help if...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+      placeholder: Describe the experience in plain language.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Who benefits?
+      options:
+        - Anyone using an AI agent
+        - Developers and documentation teams
+        - Privacy-conscious users
+        - Contributors and maintainers
+

@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask a question or share an experiment
+    url: https://github.com/iarttools/aidigest/discussions
+    about: Discussions are better for ideas, questions, and measured results.
+  - name: Read the quick start
+    url: https://github.com/iarttools/aidigest#start-without-learning-anything-new
+    about: Try the portable EXE or the AI-guided installer first.
+

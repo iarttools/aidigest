@@ -49,6 +49,40 @@ La reducción cambia según la página. No hay una cifra mágica: el panel ense�
 
 Si aidigest te ahorra tiempo o tokens, la mejor ayuda es compartir una captura con el resultado de una página real, dejar una estrella en GitHub o aportar una traducción, un agente compatible o un caso de prueba. Hemos preparado mensajes listos para publicar en [`docs/LAUNCH.md`](./docs/LAUNCH.md).
 
+## Pon aidigest dentro de tu repositorio de GitHub
+
+La demo pública es solo el principio. Cualquier repositorio con mucha documentación puede medir su propio contexto para IA añadiendo la Action gratuita **aidigest Context Receipt**:
+
+```yaml
+name: Context receipt
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  aidigest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: iarttools/aidigest@main
+        with:
+          paths: README.md,docs
+```
+
+Cada pull request recibe una medición local y compacta de tokens de entrada, texto repetido o de plantilla y señales conocidas con forma de instrucción. No llama a ningún modelo, no necesita API key ni sube tu repositorio. El porcentaje es una estimación para ayudarte a decidir, no una promesa fija para todas las páginas.
+
+Prueba el [laboratorio de ahorro](https://iarttools.github.io/aidigest/) en el navegador o consulta la [guía completa para añadirlo a un repositorio](./docs/adoption.md). La Action se puede desactivar cuando quieras; el panel y la CLI también permiten usarlo en modo completamente manual.
+
+### Haz que el proyecto sea más fácil de encontrar
+
+- Prueba la [demo pública](https://iarttools.github.io/aidigest/) antes de instalar.
+- Comparte un recibo medido de antes/después en [Discussions](https://github.com/iarttools/aidigest/discussions), especialmente con una página difícil.
+- Usa los formularios de incidencias para bugs reproducibles e ideas.
+- Cita o enlaza el proyecto con el [`CITATION.cff`](./CITATION.cff) incluido.
+
 ## Por qué existe
 
 Cuando un agente lee una página, normalmente recibe mucho más que el artículo o la documentación importante:

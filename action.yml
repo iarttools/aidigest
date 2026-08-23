@@ -1,0 +1,23 @@
+name: aidigest Context Receipt
+description: Measure repository context before an AI agent reads it, with no API key and no hosted service.
+author: aidigest contributors
+branding:
+  icon: bar-chart-2
+  color: green
+inputs:
+  paths:
+    description: Comma-separated files or folders to inspect.
+    required: false
+    default: README.md,docs
+  comment:
+    description: Add or update a receipt comment on pull requests.
+    required: false
+    default: true
+  fail-on-reduction:
+    description: Fail when the selected content has no removable noise.
+    required: false
+    default: false
+runs:
+  using: node24
+  main: action/index.mjs
+
