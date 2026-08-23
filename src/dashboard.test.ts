@@ -13,7 +13,7 @@ describe('dashboard', () => {
     if (!server.listening) await once(server, 'listening');
     const addr = server.address() as { port: number };
     recordStats({ url: 'https://x.test/a', before: 100, after: 40, mode: 'digest', injections: 0, source: 'proxy' }, file);
-    const res = await fetch(`http://localhost:${addr.port}/api/events`);
+    const res = await fetch(`http://127.0.0.1:${addr.port}/api/events`);
     const data = (await res.json()) as { summary: { runs: number; bySource: Record<string, number> } };
     expect(data.summary.runs).toBeGreaterThanOrEqual(1);
     expect(data.summary.bySource.proxy).toBeGreaterThanOrEqual(1);
