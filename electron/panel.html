@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;" />
+  <title>aidigest · runtime</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <div class="window-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">&gt;_</div>
+        <div>
+          <strong>aidigest</strong>
+          <span data-i18n="brand.tagline">context runtime</span>
+        </div>
+      </div>
+
+      <div class="workspace-pill">
+        <span class="workspace-dot"></span>
+        <span data-i18n="workspace.local">ESPACIO LOCAL</span>
+        <span class="workspace-chevron">⌄</span>
+      </div>
+
+      <nav class="nav" aria-label="Workspace navigation">
+        <div class="nav-label" data-i18n="nav.workspace">WORKSPACE</div>
+        <button class="nav-item active" type="button" data-view="overview"><span class="nav-icon">⌂</span><span data-i18n="nav.overview">Resumen</span></button>
+        <button class="nav-item" type="button" data-view="activity"><span class="nav-icon">↯</span><span data-i18n="nav.activity">Actividad</span></button>
+        <button class="nav-item" type="button" data-view="security"><span class="nav-icon">◇</span><span data-i18n="nav.security">Seguridad</span></button>
+      </nav>
+
+      <div class="sidebar-section">
+        <div class="nav-label" data-i18n="sidebar.runtime">RUNTIME</div>
+        <div class="side-status"><span class="status-dot"></span><span data-i18n="sidebar.ledger">Ledger local</span><span class="side-status-value" data-i18n="status.live">LIVE</span></div>
+        <div class="side-status"><span class="proxy-dot" id="proxyDot"></span><span data-i18n="sidebar.proxy">Proxy del agente</span><span class="side-status-value" id="proxyState">OFF</span></div>
+        <div class="side-status"><span class="mode-dot" id="modeDot"></span><span data-i18n="sidebar.agentMode">Modo del agente</span><span class="side-status-value" id="modeState">MANUAL</span></div>
+        <code id="statsPath" class="stats-path">~/.aidigest/stats.json</code>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-footer">
+        <div class="language-caption" data-i18n="language.label">IDIOMA</div>
+        <div class="language-switch sidebar-language" role="group" aria-label="Language">
+          <button id="langEs" type="button" data-locale="es">ES</button>
+          <button id="langEn" type="button" data-locale="en">EN</button>
+        </div>
+        <button class="reset-button" id="resetButton" type="button"><span>×</span><span data-i18n="actions.clearHistory">Vaciar historial</span></button>
+        <div class="version">aidigest 0.8.0 <span>·</span> desktop</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="titlebar">
+        <div class="breadcrumb"><span class="crumb-muted">~/aidigest</span><span>/</span><span id="currentView" data-i18n="nav.overview">Resumen</span></div>
+        <div class="titlebar-right">
+          <div class="runtime-chip"><span class="live-dot"></span><span data-i18n="status.synced">SINCRONIZADO</span></div>
+          <div class="language-switch top-language" role="group" aria-label="Language">
+            <button id="topLangEs" type="button" data-locale="es">ES</button>
+            <button id="topLangEn" type="button" data-locale="en">EN</button>
+          </div>
+          <div class="window-actions" aria-label="Window controls">
+            <button type="button" aria-label="Minimize" id="minimizeButton">−</button>
+            <button type="button" aria-label="Maximize" id="maximizeButton">□</button>
+            <button type="button" aria-label="Close" class="close-button" id="closeButton">×</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-scroll">
+        <section class="hero">
+          <div>
+            <div class="eyebrow"><span class="prompt-mark">&gt;</span><span data-i18n="hero.eyebrow">LIVE CONTEXT RUNTIME</span></div>
+            <h1><span data-i18n="hero.titleA">Everything your agent</span> <em data-i18n="hero.titleB">didn't have to read.</em></h1>
+            <p data-i18n="hero.subtitle">A local runtime that removes noise, protects context and measures every token before it reaches the model.</p>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-command"><span>$</span><code>aidigest monitor --live</code></div>
+            <span id="lastUpdated" data-i18n="status.updating">Updating…</span>
+            <div class="hero-actions">
+              <button class="text-button" id="trustButton" type="button"><span>◇</span><span data-i18n="actions.trustCenter">Centro de confianza</span></button>
+              <button class="text-button accent-button" id="shareButton" type="button"><span>↗</span><span data-i18n="actions.shareProof">Compartir prueba</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Runtime metrics">
+          <article class="metric-card metric-primary"><div class="metric-label" data-i18n="metrics.savedTokens">Tokens ahorrados</div><div class="metric-value" id="savedTokens">0</div><div class="metric-foot"><span class="trend-up">↗</span><span data-i18n="metrics.savedTokensFoot">Contexto eliminado del flujo</span></div></article>
+          <article class="metric-card"><div class="metric-label" data-i18n="metrics.reduction">Reducción media</div><div class="metric-value" id="savedPct">0%</div><div class="metric-foot"><span class="metric-accent orange">●</span><span data-i18n="metrics.reductionFoot">Sobre el total procesado</span></div></article>
+          <article class="metric-card"><div class="metric-label" data-i18n="metrics.reads">Lecturas procesadas</div><div class="metric-value" id="runs">0</div><div class="metric-foot"><span class="metric-accent blue">●</span><span data-i18n="metrics.readsFoot">Sesiones en el ledger</span></div></article>
+          <article class="metric-card"><div class="metric-label" data-i18n="metrics.savings">Ahorro estimado</div><div class="metric-value" id="savedUsd">$0.00</div><div class="metric-foot"><span class="metric-accent amber">●</span><span id="modelLabel">gpt-4o-mini</span></div></article>
+          <article class="metric-card"><div class="metric-label" data-i18n="metrics.quality">Calidad media</div><div class="metric-value" id="qualityScore">0/100</div><div class="metric-foot"><span class="metric-accent blue">●</span><span data-i18n="metrics.qualityFoot">Trazabilidad y estructura</span></div></article>
+          <article class="metric-card"><div class="metric-label" data-i18n="metrics.cache">Cache hit</div><div class="metric-value" id="cacheHit">0%</div><div class="metric-foot"><span class="metric-accent orange">●</span><span data-i18n="metrics.cacheFoot">Reutilización inteligente</span></div></article>
+        </section>
+
+        <section class="runtime-grid">
+          <article class="panel chart-panel"><div class="panel-heading"><div><div class="section-kicker" data-i18n="chart.kicker">CONTEXT VOLUME</div><h2 data-i18n="chart.title">Compresión en tiempo real</h2></div><div class="chart-legend"><span><i class="legend-before"></i><span data-i18n="chart.before">Antes</span></span><span><i class="legend-after"></i><span data-i18n="chart.after">Después</span></span></div></div><div class="chart-wrap"><canvas id="tokenChart" aria-label="Token chart"></canvas><div class="empty-chart" id="emptyChart" data-i18n="chart.empty">Esperando la primera lectura…</div></div><div class="chart-footer"><span id="chartRange" data-i18n="chart.range">Últimas 50 lecturas</span><span><b class="legend-before"></b><span data-i18n="chart.raw">HTML bruto</span>&nbsp;&nbsp; <b class="legend-after"></b><span data-i18n="chart.digest">Digest seguro</span></span></div></article>
+          <article class="panel savings-panel"><div class="panel-heading"><div><div class="section-kicker" data-i18n="efficiency.kicker">EFFICIENCY</div><h2 data-i18n="efficiency.title">Rendimiento del digest</h2></div><span class="panel-live">● <span data-i18n="status.live">LIVE</span></span></div><div class="ring-row"><div class="savings-ring" id="savingsRing"><div><strong id="ringValue">0%</strong><span data-i18n="efficiency.lessContext">menos contexto</span></div></div><div class="ring-copy"><strong id="tokensAfter">0</strong><span data-i18n="efficiency.sent">tokens enviados</span><small id="tokensBefore">de 0 tokens brutos</small></div></div><div class="mode-block"><div class="mode-title"><span data-i18n="efficiency.distribution">Distribución por modo</span><span data-i18n="efficiency.reads">lecturas</span></div><div id="modeBars" class="mode-bars"><div class="no-data" data-i18n="activity.emptyShort">Sin actividad todavía</div></div></div></article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="panel activity-panel" id="activityView"><div class="panel-heading"><div><div class="section-kicker" data-i18n="activity.kicker">EVENT STREAM</div><h2 data-i18n="activity.title">Últimas lecturas</h2></div><span class="event-count" id="eventCount">0 eventos</span></div><div class="activity-table-wrap"><table><thead><tr><th data-i18n="table.time">Hora</th><th data-i18n="table.source">Fuente</th><th data-i18n="table.url">URL</th><th data-i18n="table.before">Antes</th><th data-i18n="table.after">Después</th><th data-i18n="table.reduction">Reducción</th><th data-i18n="table.status">Estado</th></tr></thead><tbody id="activityRows"><tr><td colspan="7" class="no-data" data-i18n="activity.empty">Sin lecturas todavía. Cuando el agente consulte una web, aparecerá aquí.</td></tr></tbody></table></div></article>
+          <article class="panel security-panel" id="securityView"><div class="panel-heading"><div><div class="section-kicker" data-i18n="security.kicker">CONTEXT GUARD</div><h2 data-i18n="security.title">Seguridad del contexto</h2></div><span class="shield">◇</span></div><div class="security-score"><strong id="injectionCount">0</strong><span data-i18n="security.detected">inyecciones detectadas</span></div><div class="security-meter"><span id="securityMeter"></span></div><p class="security-note" id="securityNote" data-i18n="security.clean">El scrubber está activo y analizando cada digest antes de entregarlo.</p><div class="security-items"><span><i class="check">✓</i><span data-i18n="security.injection">Prompt injection</span></span><span><i class="check">✓</i><span data-i18n="security.budgets">Límites de presupuesto</span></span><span><i class="check">✓</i><span data-i18n="security.ledger">Ledger atómico</span></span><span><i class="check">✓</i><span data-i18n="security.sensitive">Datos sensibles: </span><b id="redactionCount">0</b><span data-i18n="security.redactions"> redacciones</span></span></div></article>
+        </section>
+
+        <section class="control-grid">
+          <article class="panel control-card"><div class="control-icon orange-icon">↯</div><div><div class="section-kicker" data-i18n="controls.proxyKicker">NETWORK BRIDGE</div><h2 data-i18n="controls.proxyTitle">Puente del agente</h2><p id="proxyHint" data-i18n="controls.proxyOff">Activa el proxy local para entregar digests automáticamente.</p><code id="proxyAddress">127.0.0.1:8080</code></div><button class="control-button proxy-toggle" id="proxyToggle" type="button" data-i18n="controls.proxyEnable">Activar proxy</button></article>
+          <article class="panel control-card"><div class="control-icon blue-icon">&gt;_</div><div><div class="section-kicker" data-i18n="controls.modeKicker">AGENT POLICY</div><h2 data-i18n="controls.modeTitle">Modo del agente</h2><p id="modeHint" data-i18n="controls.modeManual">El agente usa aidigest solo cuando se lo indicas.</p><code data-i18n="controls.modeCode">automatic ↔ manual</code></div><button class="control-button mode-toggle" id="modeToggle" type="button" data-i18n="controls.modeEnable">Activar automático</button></article>
+          <article class="panel control-card gpu-control"><div class="control-icon amber-icon">◈</div><div><div class="section-kicker" data-i18n="controls.gpuKicker">HARDWARE PROBE</div><h2 data-i18n="controls.gpuTitle">Aceleración gráfica</h2><p id="gpuHint" data-i18n="controls.gpuChecking">Comprobando WebGPU y el dispositivo disponible…</p><code id="gpuDetails" data-i18n="controls.gpuDetails">fallback CPU preparado</code></div><span class="gpu-state" id="gpuState">CHECK</span></article>
+          <article class="panel control-card"><div class="control-icon purple-icon">⌘</div><div><div class="section-kicker" data-i18n="controls.agentKicker">AGENT SETUP</div><h2 data-i18n="controls.agentTitle">Conectar un agente</h2><p data-i18n="controls.agentHint">Detecta clientes MCP y prepara la configuración en un paso.</p><code data-i18n="controls.agentCode">Claude · Cursor · OpenCode</code></div><button class="control-button" id="agentButton" type="button" data-i18n="controls.agentButton">Configurar</button></article>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop hidden" id="onboardingOverlay" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <section class="modal onboarding-modal">
+      <div class="modal-kicker"><span class="prompt-mark">&gt;</span><span data-i18n="onboarding.kicker">FIRST RUN CHECK</span></div>
+      <h2 id="onboardingTitle" data-i18n="onboarding.title">See the value before you configure anything.</h2>
+      <p class="modal-lead" data-i18n="onboarding.lead">aidigest runs a local sample through the same extraction and safety pipeline used by your agent.</p>
+      <div class="demo-result" id="demoResult"><div class="demo-status"><span class="workspace-dot"></span><span id="demoStatus" data-i18n="onboarding.running">Running local proof…</span></div><div class="demo-metrics"><div><strong id="demoBefore">—</strong><span data-i18n="onboarding.raw">raw tokens</span></div><div class="demo-arrow">→</div><div><strong id="demoAfter">—</strong><span data-i18n="onboarding.digest">digest tokens</span></div><div class="demo-saving"><strong id="demoSaved">—</strong><span data-i18n="onboarding.saved">saved</span></div></div><div class="demo-foot"><span data-i18n="onboarding.injections">Prompt injection attempts removed</span><b id="demoInjection">—</b></div></div>
+      <div class="modal-actions"><button class="text-button" id="onboardingDismiss" type="button" data-i18n="actions.dismiss">Ahora no</button><button class="primary-button" id="onboardingStart" type="button" data-i18n="onboarding.start">Continue to setup</button></div>
+    </section>
+  </div>
+  <div class="modal-backdrop hidden" id="agentOverlay" role="dialog" aria-modal="true" aria-labelledby="agentTitle">
+    <section class="modal agent-modal"><div class="modal-heading"><div><div class="modal-kicker" data-i18n="agents.kicker">AGENT SETUP</div><h2 id="agentTitle" data-i18n="agents.title">Connect your agents</h2></div><button class="modal-close" id="agentClose" type="button">×</button></div><p class="modal-lead" data-i18n="agents.lead">aidigest detects compatible agents installed on this machine. Select one or more to prepare their local MCP entry; the original file is kept as a backup.</p><div class="agent-toolbar"><span id="agentSelectionCount">0 selected</span><button class="text-button" id="agentRefresh" type="button" data-i18n="agents.refresh">Scan again</button></div><div class="agent-list" id="agentList"><div class="no-data" data-i18n="agents.scanning">Scanning installed agents and local configs…</div></div><div class="agent-config-preview"><div class="section-kicker" data-i18n="agents.previewKicker">CONFIG PREVIEW</div><pre id="agentConfigPreview"></pre></div><div class="modal-actions"><button class="text-button" id="agentCopy" type="button" data-i18n="actions.copyConfig">Copy config</button><button class="primary-button" id="agentConfigure" type="button" data-i18n="agents.configure">Install aidigest in selected</button></div></section>
+  </div>
+  <div class="modal-backdrop hidden" id="trustOverlay" role="dialog" aria-modal="true" aria-labelledby="trustTitle">
+    <section class="modal trust-modal"><div class="modal-heading"><div><div class="modal-kicker" data-i18n="trust.kicker">TRUST CENTER</div><h2 id="trustTitle" data-i18n="trust.title">What aidigest can and cannot see</h2></div><button class="modal-close" id="trustClose" type="button">×</button></div><div class="trust-grid"><div class="trust-item"><span class="trust-icon safe">✓</span><div><strong data-i18n="trust.localTitle">Local by default</strong><p data-i18n="trust.localBody">Stats, settings and language preference stay on this machine.</p></div></div><div class="trust-item"><span class="trust-icon safe">✓</span><div><strong data-i18n="trust.httpsTitle">HTTPS stays encrypted</strong><p data-i18n="trust.httpsBody">CONNECT traffic is tunneled. aidigest does not perform MITM decryption.</p></div></div><div class="trust-item"><span class="trust-icon warn">!</span><div><strong data-i18n="trust.limitTitle">Clients can opt out</strong><p data-i18n="trust.limitBody">Apps that ignore proxy settings need explicit MCP or endpoint configuration.</p></div></div><div class="trust-item"><span class="trust-icon safe">↶</span><div><strong data-i18n="trust.rollbackTitle">Always reversible</strong><p data-i18n="trust.rollbackBody">Switch to MANUAL or use the command line to stop automatic interception.</p></div></div></div><div class="trust-footer"><span data-i18n="trust.configLabel">Current policy</span><b id="trustPolicy">MANUAL</b><span>·</span><code id="trustConfigPath">~/.aidigest/config.json</code></div><div class="modal-actions"><button class="primary-button" id="trustCloseBottom" type="button" data-i18n="actions.close">Close</button></div></section>
+  </div>
+  <div class="modal-backdrop hidden" id="proofOverlay" role="dialog" aria-modal="true" aria-labelledby="proofTitle">
+    <section class="modal proof-modal"><div class="modal-heading"><div><div class="modal-kicker" data-i18n="proof.kicker">SHAREABLE PROOF</div><h2 id="proofTitle" data-i18n="proof.title">Your efficiency receipt</h2></div><button class="modal-close" id="proofClose" type="button">×</button></div><div class="proof-card"><div class="proof-brand"><span class="brand-mark">&gt;_</span><strong>aidigest</strong><span data-i18n="proof.local">local runtime</span></div><div class="proof-main"><strong id="proofSaved">0%</strong><span data-i18n="proof.lessContext">less context</span></div><div class="proof-grid"><div><b id="proofTokens">0</b><span data-i18n="proof.tokens">tokens saved</span></div><div><b id="proofRuns">0</b><span data-i18n="proof.reads">reads processed</span></div><div><b id="proofMoney">$0.00</b><span data-i18n="proof.money">estimated savings</span></div></div><div class="proof-date" id="proofDate"></div></div><p class="modal-lead" data-i18n="proof.lead">A local, verifiable snapshot. No page content is included.</p><div class="modal-actions"><button class="text-button" id="proofDownload" type="button" data-i18n="actions.download">Download JSON</button><button class="primary-button" id="proofCopy" type="button" data-i18n="actions.copyProof">Copy proof</button></div></section>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html>
+

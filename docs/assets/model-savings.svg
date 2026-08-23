@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">El mismo ahorro, mayor impacto en modelos más caros</title>
+  <desc id="desc">Comparación ilustrativa de un 51 por ciento menos de tokens de entrada. Los modelos rápidos, equilibrados y premium ahorran 51, 153 y 510 unidades de coste normalizado, respectivamente.</desc>
+  <rect width="1200" height="560" rx="18" fill="#0b0b0a"/>
+  <text x="54" y="56" fill="#f27a4b" font-family="Consolas,monospace" font-size="13" font-weight="700" letter-spacing="2">THE TOKEN MULTIPLIER</text>
+  <text x="54" y="104" fill="#f4f0e9" font-family="Arial,sans-serif" font-size="31" font-weight="700">El mismo ahorro vale más cuando el modelo es más caro.</text>
+  <text x="54" y="137" fill="#a69c92" font-family="Arial,sans-serif" font-size="16">Ejemplo ilustrativo: 100k tokens de entrada → 49k. No es una lista de precios.</text>
+  <g font-family="Consolas,monospace" font-size="13">
+    <text x="54" y="202" fill="#8d8379">TIPO DE MODELO</text><text x="330" y="202" fill="#8d8379">COSTE ORIGINAL</text><text x="580" y="202" fill="#8d8379">COSTE TRAS AIDIGEST</text><text x="950" y="202" fill="#8d8379">UNIDADES AHORRADAS</text>
+    <line x1="54" y1="220" x2="1146" y2="220" stroke="#2c2925"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="16">
+    <text x="54" y="270" fill="#f4f0e9">Rápido / mini / flash</text><text x="330" y="270" fill="#91c7ff" font-family="Consolas,monospace">100</text><rect x="580" y="252" width="196" height="26" rx="4" fill="#26323e"/><rect x="580" y="252" width="96" height="26" rx="4" fill="#91c7ff"/><text x="802" y="271" fill="#a69c92" font-family="Consolas,monospace">49</text><text x="950" y="270" fill="#91c7ff" font-family="Consolas,monospace" font-weight="700">51</text>
+    <text x="54" y="350" fill="#f4f0e9">Equilibrado / standard / sonnet</text><text x="330" y="350" fill="#c19cff" font-family="Consolas,monospace">300</text><rect x="580" y="332" width="196" height="26" rx="4" fill="#30283d"/><rect x="580" y="332" width="96" height="26" rx="4" fill="#c19cff"/><text x="802" y="351" fill="#a69c92" font-family="Consolas,monospace">147</text><text x="950" y="350" fill="#c19cff" font-family="Consolas,monospace" font-weight="700">153</text>
+    <text x="54" y="430" fill="#f4f0e9">Premium / frontier / opus</text><text x="330" y="430" fill="#f27a4b" font-family="Consolas,monospace">1000</text><rect x="580" y="412" width="196" height="26" rx="4" fill="#3b241b"/><rect x="580" y="412" width="96" height="26" rx="4" fill="#f27a4b"/><text x="802" y="431" fill="#a69c92" font-family="Consolas,monospace">490</text><text x="950" y="430" fill="#f27a4b" font-family="Consolas,monospace" font-weight="700">510</text>
+  </g>
+  <text x="54" y="510" fill="#756d65" font-family="Arial,sans-serif" font-size="13">La reducción de tokens es la misma; el ahorro económico depende del precio de entrada de cada proveedor.</text>
+</svg>
+

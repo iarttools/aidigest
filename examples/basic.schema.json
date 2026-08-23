@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "links": { "type": "array" },
+    "dates": { "type": "array" },
+    "prices": { "type": "array" },
+    "emails": { "type": "array" }
+  }
+}
+

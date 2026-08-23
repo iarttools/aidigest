@@ -1,0 +1,110 @@
+{
+  "name": "aidigest",
+  "version": "0.8.1",
+  "description": "The AI-native layer that digests any web page into minimal tokens — measurable, safe, transparent. CLI + MCP server for any agent. (npx aidigest <url>)",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "author": "aidigest contributors",
+  "bin": {
+    "aidigest": "dist/cli.js",
+    "aidigest-mcp": "dist/mcp.js"
+  },
+  "files": [
+    "dist",
+    "agent.cjs"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "llm",
+    "token",
+    "digest",
+    "readability",
+    "mcp",
+    "web",
+    "scraping",
+    "llms-txt",
+    "prompt-injection"
+  ],
+  "prepublishOnly": "npm run build",
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "dev": "tsx src/cli.ts",
+    "mcp": "tsx src/mcp.ts",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "vitest run",
+    "benchmark": "npm run build && node --expose-gc scripts/benchmark.mjs",
+    "smoke:mcp": "node scripts/mcp-call-smoke.mjs",
+    "smoke:panel": "node scripts/panel-smoke.mjs",
+    "bundle": "esbuild src/cli.ts --bundle --platform=node --format=cjs --outfile=release/cli.bundle.cjs",
+    "exe": "npm run bundle && node node_modules/@yao-pkg/pkg/lib-es5/bin.js release/cli.bundle.cjs --targets node22-win-x64 --output release/aidigest.exe",
+    "bundle:dash": "esbuild src/dashboard-bin.ts --bundle --platform=node --format=cjs --outfile=release/dash.bundle.cjs",
+    "exe:dash": "npm run bundle:dash && node node_modules/@yao-pkg/pkg/lib-es5/bin.js release/dash.bundle.cjs --targets node22-win-x64 --output release/aidigest-dashboard.exe",
+    "bundle:lib": "esbuild src/dashboard.ts --bundle --platform=node --format=cjs --outfile=release/dash-lib.cjs",
+    "bundle:app-proxy": "esbuild src/app-proxy.ts --bundle --platform=node --format=cjs --outfile=release/app-proxy.cjs",
+    "bundle:automation": "esbuild src/core/automation.ts --bundle --platform=node --format=cjs --outfile=release/automation.cjs",
+    "bundle:demo": "esbuild src/demo.ts --bundle --platform=node --format=cjs --outfile=release/demo.cjs",
+    "bundle:mcp": "esbuild src/mcp.ts --bundle --platform=node --format=cjs --outfile=release/mcp.bundle.cjs",
+    "setup:ai": "node scripts/agent-install.mjs",
+    "dist:electron": "npm run bundle:lib && npm run bundle:app-proxy && npm run bundle:automation && npm run bundle:demo && npm run bundle:mcp && electron-builder --win portable",
+    "web": "esbuild src/web.ts --bundle --platform=browser --format=esm --outfile=dist-web/aidigest.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@mozilla/readability": "^0.6.0",
+    "commander": "^12.1.0",
+    "js-tiktoken": "^1.0.12",
+    "linkedom": "^0.16.11",
+    "node-html-markdown": "^1.3.0",
+    "undici": "^6.19.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@yao-pkg/pkg": "^6.22.0",
+    "electron": "^43.4.1",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^3.2.7"
+  },
+  "build": {
+    "appId": "com.aidigest.panel",
+    "productName": "aidigest",
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "electron"
+    },
+    "files": [
+      "electron/**/*",
+      "release/dash-lib.cjs",
+      "release/app-proxy.cjs",
+      "release/automation.cjs",
+      "release/demo.cjs",
+      "release/mcp.bundle.cjs",
+      "agent.cjs",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "aidigest-panel.exe"
+    }
+  }
+}
+

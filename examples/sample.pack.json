@@ -1,0 +1,22 @@
+{
+  "name": "sample",
+  "version": 1,
+  "createdAt": "2026-08-23T00:00:00.000Z",
+  "entries": [
+    {
+      "url": "https://example.com/aidigest",
+      "title": "aidigest",
+      "markdown": "# aidigest\n\nThe AI-native layer that digests any web page into minimal tokens. Measurable, safe, transparent. For any agent, any model, any website.",
+      "tokens": 30,
+      "fetchedAt": "2026-08-23T00:00:00.000Z"
+    },
+    {
+      "url": "https://example.com/ai-ready",
+      "title": "AI-Ready standard",
+      "markdown": "# AI-Ready standard\n\nPublishers adopt llms.txt and an AI-Readiness Score so agents consume structured, low-token content. Adoption compounds between sites and agents.",
+      "tokens": 28,
+      "fetchedAt": "2026-08-23T00:00:00.000Z"
+    }
+  ]
+}
+

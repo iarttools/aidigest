@@ -1,0 +1,20 @@
+name: release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run dist:electron
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist-electron/aidigest-panel.exe
+

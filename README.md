@@ -91,7 +91,7 @@ aidigest combina varias capas independientes:
 
 Descarga o copia este archivo:
 
-[aidigest-panel.exe](./aidigest-panel.exe)
+[Descargar aidigest-panel.exe desde GitHub Releases](https://github.com/iarttools/aidigest/releases/latest/download/aidigest-panel.exe)
 
 Haz doble clic. No necesitas instalar Node.js ni ejecutar comandos.
 

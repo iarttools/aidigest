@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-web/
+dist-electron/
+release/
+aidigest-panel.exe
+.aidigest-*.json
+aidigest.pac
+*.log
+.DS_Store
+
