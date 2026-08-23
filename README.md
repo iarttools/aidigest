@@ -15,6 +15,19 @@
 
 ![aidigest removes noise and delivers useful context](./docs/assets/aidigest-overview.en.svg)
 
+## See aidigest in action
+
+<p align="center">
+  <video controls width="100%" poster="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/assets/social-preview.svg">
+    <source src="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4" type="video/mp4">
+    Your browser cannot play this video. <a href="https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4">Download the 30-second demo</a>.
+  </video>
+</p>
+
+Watch the 30-second overview to see the flow from noisy web content to a cleaner, measurable digest: **259 → 126 tokens** in the included example.
+
+[Download the MP4 demo](https://raw.githubusercontent.com/iarttools/aidigest/main/docs/video/aidigest-youtube-demo.mp4)
+
 ## The idea in one sentence
 
 Open aidigest, choose your agent, and keep working. It cleans web pages, removes repeated content, detects prompt-injection signals, and returns a shorter, traceable version. Less unnecessary reading means fewer tokens, less waiting, and lower cost.
@@ -757,5 +770,4 @@ The idea is open and simple:
 MIT. You can use, modify, integrate, and contribute to the project.
 
 See [LICENSE](./LICENSE) for the full text.
-
 
