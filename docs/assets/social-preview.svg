@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">aidigest — make your AI read less</title>
+  <desc id="desc">A dark launch card showing a web page becoming useful AI context, with an illustrative token reduction from 259 to 126.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07090d"/>
+      <stop offset="1" stop-color="#121923"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#2ee6a6"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="1075" cy="120" r="190" fill="#7c5cff" opacity=".08"/>
+  <circle cx="1120" cy="520" r="210" fill="#2ee6a6" opacity=".06"/>
+  <path d="M0 550 C280 430 420 620 720 480 S1090 350 1280 430" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="2"/>
+
+  <g transform="translate(72 72)">
+    <rect width="120" height="32" rx="16" fill="#2ee6a6" fill-opacity=".13" stroke="#2ee6a6" stroke-opacity=".5"/>
+    <circle cx="18" cy="16" r="5" fill="#2ee6a6"/>
+    <text x="32" y="21" fill="#b8ffe4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.4">FREE • LOCAL</text>
+  </g>
+  <text x="72" y="184" fill="#f4f6fb" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="-2.2">Make your AI</text>
+  <text x="72" y="252" fill="#f4f6fb" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="-2.2">read less.</text>
+  <rect x="72" y="286" width="420" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="72" y="340" fill="#aeb8c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23">aidigest cleans web context before</text>
+  <text x="72" y="373" fill="#aeb8c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23">it reaches your AI agent.</text>
+  <text x="72" y="464" fill="#66748a" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">OPEN SOURCE  ·  MCP  ·  CLAUDE  ·  CURSOR</text>
+  <text x="72" y="548" fill="#f4f6fb" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="700">aidigest</text>
+  <text x="72" y="577" fill="#76839a" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Free context efficiency for everyone.</text>
+
+  <g transform="translate(650 98)">
+    <rect width="550" height="424" rx="24" fill="#101721" stroke="#293446" stroke-width="2"/>
+    <rect x="28" y="26" width="494" height="38" rx="10" fill="#171f2c"/>
+    <circle cx="50" cy="45" r="5" fill="#ff6b6b"/><circle cx="68" cy="45" r="5" fill="#ffd166"/><circle cx="86" cy="45" r="5" fill="#2ee6a6"/>
+    <text x="114" y="50" fill="#728098" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">aidigest panel</text>
+    <text x="34" y="111" fill="#eef2f8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">Context receipt</text>
+    <text x="34" y="139" fill="#718097" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Included demo · measured locally</text>
+    <text x="34" y="201" fill="#738198" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">BEFORE</text>
+    <text x="466" y="201" fill="#d9e0ea" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="700">259 tokens</text>
+    <rect x="34" y="216" width="466" height="14" rx="7" fill="#283242"/>
+    <rect x="34" y="216" width="466" height="14" rx="7" fill="#66738a"/>
+    <text x="34" y="272" fill="#2ee6a6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">AFTER</text>
+    <text x="466" y="272" fill="#b8ffe4" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="700">126 tokens</text>
+    <rect x="34" y="287" width="466" height="14" rx="7" fill="#283242"/>
+    <rect x="34" y="287" width="227" height="14" rx="7" fill="url(#accent)"/>
+    <line x1="34" y1="338" x2="500" y2="338" stroke="#293446"/>
+    <text x="34" y="382" fill="#aeb8c8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">LESS CONTEXT NOISE</text>
+    <text x="500" y="386" fill="#2ee6a6" text-anchor="end" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="34" font-weight="800" filter="url(#glow)">51%</text>
+    <text x="34" y="408" fill="#66748a" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">Illustrative included demo · results vary by page and model</text>
+  </g>
+</svg>
+
